@@ -15,27 +15,41 @@ int main_menu();
 
 int main() {
     srand(time(0));
-    bool again;
+    bool again = true;
+    list<Goat> mainTrip;
 
     // read & populate arrays for names and colors
     ifstream fin("names.txt");
-    string names[SZ_NAMES];
+    string names[SZ_NAMES]; //names
     int i = 0;
     while (fin >> names[i++]);
     fin.close();
     ifstream fin1("colors.txt");
-    string colors[SZ_COLORS];
+    string colors[SZ_COLORS]; //colors
     i = 0;
     while (fin1 >> colors[i++]);
     fin1.close();
     //GOAT MANAGER ENGINE
+
     cout<<"*** GOAT MANAGER 3001***\n";
-    //check the int value returned between 1-4
-        main_menu();
-
-
-
-
+    while(again){
+        int input = main_menu();
+        switch (input){
+            case 1:
+                //add_goat(mainTrip, /*randomname*/, /*randomage*/);
+                break;
+            case 2:
+                //delete_goat
+                break;
+            case 3:
+                //display_trip()
+                break;
+            case 4:
+                again = false;
+                break;
+        }
+    }
+    
     return 0;
 }
 
@@ -47,8 +61,14 @@ int main_menu(){
     cout<<"Choice --> ";
     int input;
     cin>>input;
-    if(input<1||input>4){
-        cout<<"Invalid entry, try again.\n"
+    while(input<1||input>4){    //check the int value returned between 1-4.repeat until valid input.
+        cout<<"Invalid entry, try again. Select a option between 1-4: ";
+        cin>>input;
     }
-    return ()
+    return input;
+}
+
+void add_goat(list<Goat> &trip, string [], string []){
+
+
 }
