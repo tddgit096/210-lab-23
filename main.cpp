@@ -87,7 +87,13 @@ int select_goat(list<Goat> trip){
 void delete_goat(list<Goat> &trip){
     cout<<"Goat to be deleted. ";
     int input = select_goat(trip);
-    //iterate
+    int counter = 1;
+    for(auto it = trip.begin(); it != trip.end();it++){
+        if(counter == input){
+            trip.erase(it); //apparently this calls the destructor
+            counter++;
+        }
+    }
     //erase(iterator): remove the elmeent at the posittion specified by the iterator
 }
 
