@@ -36,7 +36,7 @@ int main() {
         int input = main_menu();
         switch (input){
             case 1:
-                //add_goat(mainTrip, /*randomname*/, /*randomage*/);
+                add_goat(mainTrip,names,colors);
                 break;
             case 2:
                 //delete_goat
@@ -68,7 +68,17 @@ int main_menu(){
     return input;
 }
 
-void add_goat(list<Goat> &trip, string [], string []){
+void add_goat(list<Goat> &trip, string name[], string colors[]){
+    trip.push_back(Goat(name[rand()%SZ_NAMES],rand()%(MAX_AGE+1),colors[rand()%SZ_COLORS]));//new goat with random values added.
+    cout<<"Goat Added!";
+}
 
+void display_trip(list<Goat> trip){
+    trip.sort();
+    int counter=1;
+    for(auto it = trip.begin(); it != trip.end(); it++){
+        cout<<"["<<counter<<"] "<<*it.get_name()<<
 
+        counter++;
+    }
 }
