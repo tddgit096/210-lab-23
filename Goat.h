@@ -24,12 +24,11 @@ public:
     int get_age() const             { return age; }
     void set_color(string c)        { color = c; }
     string get_color() const        { return color; }
-/*
+
     // write overloaded < operator for the std::list
     bool operator<(Goat &goat) const{
         return name<goat.get_name();// sort by name
     }
-*/
 };
 
 #endif

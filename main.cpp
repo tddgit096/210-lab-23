@@ -42,7 +42,7 @@ int main() {
                 //delete_goat
                 break;
             case 3:
-                //display_trip()
+                display_trip(mainTrip);
                 break;
             case 4:
                 again = false;
@@ -73,12 +73,15 @@ void add_goat(list<Goat> &trip, string name[], string colors[]){
     cout<<"Goat Added!";
 }
 
+void select_goat(){
+
+}
+
 void display_trip(list<Goat> trip){
     trip.sort();
     int counter=1;
     for(auto it = trip.begin(); it != trip.end(); it++){
-        cout<<"["<<counter<<"] "<<*it.get_name()<<
-
+        cout<<"["<<counter<<"] "<<it->get_name()<<" ("<<it->get_age()<<", "<<it->get_color()<<")\n";
         counter++;
     }
 }
