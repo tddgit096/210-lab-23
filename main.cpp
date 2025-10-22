@@ -28,6 +28,10 @@ int main() {
     i = 0;
     while (fin1 >> colors[i++]);
     fin1.close();
+    //GOAT MANAGER ENGINE
+    cout<<"*** GOAT MANAGER 3001***\n";
+    //check the int value returned between 1-4
+        main_menu();
 
 
 
@@ -35,3 +39,16 @@ int main() {
     return 0;
 }
 
+int main_menu(){
+    cout<<"[1] Add a goat\n";
+    cout<<"[2] Delete a goat\n";
+    cout<<"[3] List goats\n";
+    cout<<"[4] Quit\n";
+    cout<<"Choice --> ";
+    int input;
+    cin>>input;
+    if(input<1||input>4){
+        cout<<"Invalid entry, try again.\n"
+    }
+    return ()
+}
