@@ -39,7 +39,7 @@ int main() {
                 add_goat(mainTrip,names,colors);
                 break;
             case 2:
-                //delete_goat
+                delete_goat(mainTrip);
                 break;
             case 3:
                 display_trip(mainTrip);
@@ -73,9 +73,24 @@ void add_goat(list<Goat> &trip, string name[], string colors[]){
     cout<<"Goat Added!";
 }
 
-void select_goat(){
-
+int select_goat(list<Goat> trip){
+    int input;
+    display_trip(trip);
+    cout<<"Select which goat:";
+    cin>>input;
+    if(input>trip.size() || input<1){
+        cout<<"Out of Bounds, returning to main menu\n";
+    }
+    return input;
 }
+
+void delete_goat(list<Goat> &trip){
+    cout<<"Goat to be deleted. ";
+    int input = select_goat(trip);
+    //iterate
+    //erase(iterator): remove the elmeent at the posittion specified by the iterator
+}
+
 
 void display_trip(list<Goat> trip){
     trip.sort();
