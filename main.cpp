@@ -49,7 +49,6 @@ int main() {
                 break;
         }
     }
-    
     return 0;
 }
 
@@ -70,7 +69,7 @@ int main_menu(){
 
 void add_goat(list<Goat> &trip, string name[], string colors[]){
     trip.push_back(Goat(name[rand()%SZ_NAMES],rand()%(MAX_AGE+1),colors[rand()%SZ_COLORS]));//new goat with random values added.
-    cout<<"Goat Added!";
+    cout<<"Goat Added!\n";
 }
 
 int select_goat(list<Goat> trip){
@@ -85,24 +84,25 @@ int select_goat(list<Goat> trip){
 }
 
 void delete_goat(list<Goat> &trip){
-    cout<<"Goat to be deleted. ";
     int input = select_goat(trip);
     int counter = 1;
     for(auto it = trip.begin(); it != trip.end();it++){
         if(counter == input){
             trip.erase(it); //apparently this calls the destructor
-            counter++;
+            break;
         }
+        counter++;
     }
-    //erase(iterator): remove the elmeent at the posittion specified by the iterator
 }
 
 
 void display_trip(list<Goat> trip){
     trip.sort();
     int counter=1;
+    cout<<"=====================\n";
     for(auto it = trip.begin(); it != trip.end(); it++){
         cout<<"["<<counter<<"] "<<it->get_name()<<" ("<<it->get_age()<<", "<<it->get_color()<<")\n";
         counter++;
     }
+    cout<<"=====================\n";
 }
