@@ -80,24 +80,19 @@ int select_goat(list<Goat> trip){
     if(input>trip.size() || input<1){
         cout<<"Out of Bounds, returning to main menu\n";
     }
-    return input;
+    return input-1;
 }
 
 void delete_goat(list<Goat> &trip){
     int input = select_goat(trip);
-    int counter = 1;
-    for(auto it = trip.begin(); it != trip.end();it++){
-        if(counter == input){
-            trip.erase(it); //apparently this calls the destructor
-            break;
-        }
-        counter++;
-    }
+    auto it = trip.begin();
+    advance(it,input); //found this in the geeksforgeeks resources.
+    trip.erase(it); //apparently this calls the destructor
 }
 
 
 void display_trip(list<Goat> trip){
-    trip.sort();
+    //trip.sort();
     int counter=1;
     cout<<"=====================\n";
     for(auto it = trip.begin(); it != trip.end(); it++){
